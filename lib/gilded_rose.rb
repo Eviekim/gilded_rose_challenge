@@ -17,7 +17,7 @@ class GildedRose
     elsif item.quality > 0 and item.sell_in = 0
       item.quality -= 2
     end
-  end 
+  end
 
   def aged_brie(item)
     if item.quality == 50 and item.sell_in > 0
@@ -54,55 +54,37 @@ end
     backstage = "Backstage passes to a TAFKAL80ETC concert"
     sulfuras = "Sulfuras, Hand of Ragnaros"
 
-    # first!!!
+
     @items.each do |item|
-      # first!!!
-      if item.name != bire and item.name != backstage
-        if item.quality > 0 and item.name != sulfuras
-            item.quality = item.quality - 1
-          end
 
-      else
-        if item.quality < 50
-          item.quality = item.quality + 1
+    if item.name != brie and item.name != backstage and item.name != sulfuras
+       general(item)
+    elsif item.name == brie
+          aged_brie(item)
+    elsif item.name == backstage
+          backstage_pass(item)
+    else item.name == sulfuras
+          sulfuras(item)
+        end
+      end
+    end
 
-      # second!!!
-      if item.name == backstage
-            if item.sell_in < 11
-              if item.quality < 50
-                item.quality = item.quality + 1
-              end
-            end
-          end
-
-#             if item.sell_in < 6
-#               if item.quality < 50
-#                 item.quality = item.quality + 1
-#               end
-#             end
-#           end
-#         end
-#       end
-#       if item.name != "Sulfuras, Hand of Ragnaros"
-#         item.sell_in = item.sell_in - 1
-#       end
-#       if item.sell_in < 0
-#         if item.name != "Aged Brie"
-#           if item.name != "Backstage passes to a TAFKAL80ETC concert"
-#             if item.quality > 0
-#               if item.name != "Sulfuras, Hand of Ragnaros"
-#                 item.quality = item.quality - 1
-#               end
-#             end
-#           else
-#             item.quality = item.quality - item.quality
-#           end
-#         else
-#           if item.quality < 50
-#             item.quality = item.quality + 1
-#           end
-#         end
-#       end
-#     end
-#   end
-# end
+  end
+      # # first!!!
+      # if item.name != bire and item.name != backstage
+      #   if item.quality > 0 and item.name != sulfuras
+      #       item.quality = item.quality - 1
+      #     end
+      #
+      # else
+      #   if item.quality < 50
+      #     item.quality = item.quality + 1
+      #
+      # # second!!!
+      # if item.name == backstage
+      #       if item.sell_in < 11
+      #         if item.quality < 50
+      #           item.quality = item.quality + 1
+      #         end
+      #       end
+      #     end
