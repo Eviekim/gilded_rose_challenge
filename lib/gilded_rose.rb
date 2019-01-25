@@ -2,8 +2,8 @@
 
 class GildedRose
 
-  # attr_reader :brie, :backstage, :sulfuras_item, :conjured_item, :items,
-  #             :generalitems, :agedbrie, :backstagepass, :conjured, :sulfuras
+  attr_reader  :brie, :backstage, :sulfuras_item, :conjured_item, :items,
+               :generalitems, :agedbrie, :backstagepass, :conjured, :sulfuras
 
   def initialize(items)
     @items = items

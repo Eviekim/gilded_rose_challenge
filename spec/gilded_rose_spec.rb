@@ -1,6 +1,7 @@
 require 'gilded_rose'
 require 'item'
 require 'sulfuras'
+require 'backstage_passes'
 
 describe GildedRose do
 
@@ -42,19 +43,19 @@ describe GildedRose do
  #   end
  # end
 
-  describe backstage_pass do
+  describe BackstagePass do
     it "increases its quality by 1 if sell_in > 10" do
       item = Item.new("Backstage passes to a TAFKAL80ETC concert", 12, 21)
       GildedRose.new([item]).update_quality
-      expect(item.quality).to eq(30)
+      expect(item.quality).to eq(22)
 
-      expect(item.quality).to eq(33)
+      expect(item.quality).to eq(22)
     end
 
     it "increases its quality three times if a sell_in =< 5" do
       item = Item.new("Backstage passes to a TAFKAL80ETC concert", 4, 21)
       GildedRose.new([item]).update_quality
-      expect(item.quality).to eq(30)
+      expect(item.quality).to eq(24)
     end
 
     it "the quality can be zero if a sell_in is zero" do
@@ -62,7 +63,6 @@ describe GildedRose do
       GildedRose.new([item]).update_quality
       expect(item.quality).to eq(0)
 
-      expect(item.quality).to eq(50)
     end
 
     it "increases its quality to 50 when it is at 49" do
