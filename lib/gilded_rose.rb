@@ -49,22 +49,33 @@ class GildedRose
    end
 end
 
+ def conjured(item)
+   if item.quality == 0 or item.sell_in == 0
+     item.quality = 0 and item.sell_in = 0
+   elsif item.quality < 50 and item.sell_in > 0
+     item.quality -= 2 and item.sell_in -= 1
+   end
+ end
+
+
   def update_quality()
     brie = "Aged Brie"
     backstage = "Backstage passes to a TAFKAL80ETC concert"
     sulfuras = "Sulfuras, Hand of Ragnaros"
-
+    conjured = "Conjured"
 
     @items.each do |item|
 
-    if item.name != brie and item.name != backstage and item.name != sulfuras
+    if item.name != brie and item.name != backstage and item.name != sulfuras and item.name != conjured
        general(item)
     elsif item.name == brie
           aged_brie(item)
     elsif item.name == backstage
           backstage_pass(item)
-    else item.name == sulfuras
+    elsif item.name == sulfuras
           sulfuras(item)
+    else item.name == conjured_item
+          conjured(item)
         end
       end
     end

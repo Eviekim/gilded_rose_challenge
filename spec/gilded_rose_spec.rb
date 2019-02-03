@@ -49,7 +49,6 @@ describe GildedRose do
       GildedRose.new([item]).update_quality
       expect(item.quality).to eq(22)
 
-      expect(item.quality).to eq(22)
     end
 
     it "increases its quality three times if a sell_in =< 5" do
@@ -81,5 +80,30 @@ describe GildedRose do
   #     expect(items[0].name).to eq "fixme"
   #   end
   # end
+  describe "Conjured items - no idea what they are..." do
+    it "decreases twice faster than general tiems" do
+      item = Item.new("Conjured",3, 25)
+      GildedRose.new([item]).update_quality
+      expect(item.quality).to eq(23)
+    end
+
+    it "decreases sell_in by 1 a day" do
+      item = Item.new("Conjured",3, 25)
+      GildedRose.new([item]).update_quality
+      expect(item.sell_in).to eq(2)
+    end
+
+    it "quality can be 0 when sell_in is 0" do
+      item = Item.new("Conjured",0, 25)
+      GildedRose.new([item]).update_quality
+      expect(item.quality).to eq(0)
+    end
+
+    it "sell_in can be 0 when quality is 0" do
+      item = Item.new("Conjured",3, 0)
+      GildedRose.new([item]).update_quality
+      expect(item.sell_in).to eq(0)
+    end
+  end
 
 end
