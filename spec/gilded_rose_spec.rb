@@ -1,7 +1,8 @@
 require 'gilded_rose'
 require 'item'
-require 'sulfuras'
-require 'backstage_passes'
+# require 'sulfuras'
+# require 'backstagepass'
+require 'generalitems'
 
 describe GildedRose do
 
