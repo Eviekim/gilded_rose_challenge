@@ -6,42 +6,37 @@ require_relative 'backstagepass'
 
 class GildedRose
 
-  # attr_reader  :brie, :backstage, :sulfuras_item, :conjured_item, :items,
-  #              :generalitems, :agedbrie, :backstagepass, :conjured, :sulfuras
+   attr_reader  :brie, :backstage, :sulfurasItem, :conjuredItem
 
-  def initialize(items)
+  def initialize(items, generalitems = Generalitems.new, agedbire = AgedBrie.new, backstagepass = BackstagePass.new, conjured = Conjured.new, sulfuras = Sulfuras.new)
     @items = items
     @conjured = conjured
     @sulfuras = sulfuras
     @generalitems = generalitems
     @agedbrie = agedbrie
     @backstagepass = backstagepass
+    @brie = "Aged Brie"
+    @backstage = "Backstage passes to a TAFKAL80ETC concert"
+    @sulfurasItem = "Sulfuras, Hand of Ragnaros"
+    @conjuredItem = "Conjured"
 
-    conjured = Conjured.new
-    sulfuras = Sulfuras.new
-    generalitems = Generalitems.new
-    agedbrie = AgedBrie.new
-    backstagepass = BackStagePass.new
   end
 
 
   def update_quality()
-    brie = "Aged Brie"
-    backstage = "Backstage passes to a TAFKAL80ETC concert"
-    sulfuras = "Sulfuras, Hand of Ragnaros"
-    conjured = "Conjured"
+
 
     @items.each do |item|
 
-    if item.name != brie and item.name != backstage and item.name != sulfuras and item.name != conjured
+    if item.name != @brie and item.name != @backstage and item.name != @sulfurasItem and item.name != @conjuredItem
        @generalitems.general(item)
-    elsif item.name == brie
+    elsif item.name == @brie
           @agedbrie.aged_brie(item)
-    elsif item.name == backstage
+    elsif item.name == @backstage
           @backstagepass.backstage_pass(item)
-    elsif item.name == sulfuras
+    elsif item.name == @sulfurasItem
           @sulfuras.sulfuras(item)
-    else item.name == conjured
+    else item.name == @conjuredItem
           @conjured.conjured(item)
         end
       end
