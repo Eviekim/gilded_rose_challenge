@@ -2,7 +2,7 @@ require_relative 'conjured'
 require_relative 'sulfuras'
 require_relative 'generalitems'
 require_relative 'aged_brie'
-require_relative 'backstagepass'
+require_relative 'backstage_pass'
 
 class GildedRose
 
@@ -13,7 +13,7 @@ class GildedRose
     @conjured = conjured
     @sulfuras = sulfuras
     @generalitems = generalitems
-    @agedbrie = agedbrie
+    @agedbrie = agedbire
     @backstagepass = backstagepass
     @brie = "Aged Brie"
     @backstage = "Backstage passes to a TAFKAL80ETC concert"

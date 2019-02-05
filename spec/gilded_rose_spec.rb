@@ -1,7 +1,7 @@
 require 'gilded_rose'
 require 'item'
 # require 'sulfuras'
-# require 'backstagepass'
+require 'backstage_pass'
 require 'generalitems'
 
 describe GildedRose do
@@ -35,9 +35,39 @@ describe GildedRose do
       GildedRose.new([item]).update_quality
       expect(item.quality).to eq(11)
     end
-
   end
 
+ describe "sell_in can has impact on the quality of item" do
+   it "when sell_in has passed, Quality degrades by 2" do
+     item = Item.new("bun", 0, 6)
+     GildedRose.new([item]).update_quality
+     expect(item.quality).to eq(4)
+   end
+ end
+
+ describe "The quality of the item"
+  it "quality cannot be lower than 0" do
+    item = Item.new("mooncake", 4, 1)
+    GildedRose.new([item]).update_quality
+    expect(item.quality).to eq(0)
+  end
+
+ describe "Once the sell by date has passed" do
+   it "Quality degrades twice as fast" do
+     item = Item.new("mochi", 0, 4)
+     GildedRose.new([item]).update_quality
+     expect(item.quality).to eq(2)
+   end
+ end
+
+
+  # describe AgedBrie do
+  #   it "increases in Quality the older it gets" do
+  #     item = Item.new("aged bire", 30, 6)
+  #     GildedRose.new([item]).update_quality
+  #     expect(item.quality).to eq(7)
+  #   end
+  # end
  # describe Sulfuras do
  #   it "does not decrease its quality" do
  #
