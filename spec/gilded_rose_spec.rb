@@ -60,19 +60,39 @@ describe GildedRose do
    end
  end
 
-
-  # describe AgedBrie do
-  #   it "increases in Quality the older it gets" do
-  #     item = Item.new("aged bire", 30, 6)
+  # ***** should get 50 but you get 49!!!
+  # describe "quality of items" do
+  #   it "no more than 50" do
+  #     item = Item.new("pizza", 7, 50)
   #     GildedRose.new([item]).update_quality
-  #     expect(item.quality).to eq(7)
+  #     expect(item.quality).to eq(50)
   #   end
   # end
- # describe Sulfuras do
- #   it "does not decrease its quality" do
- #
- #   end
- # end
+
+  # ***** need to get 8 but get 6
+  # describe AgedBrie do
+  #   it "increases in quality the older it gets" do
+  #     item = Item.new("aged_bire", 4, 7)
+  #     GildedRose.new([item]).update_quality
+  #     expect(item.quality).to eq(8)
+  #   end
+  # end
+
+  # ***** need to get 28 but you get 27
+  # describe Sulfuras do
+  #   it "does not decrease its quality" do
+  #     item = Item.new("Sulfuras legendary one", 4, 28)
+  #     GildedRose.new([item]).update_quality
+  #     expect(item.quality).to eq(28)
+  #   end
+
+   # ***** need to get sell_in 4 but get 3
+   #    it "not to be sold" do
+   #      item = Item.new("Sulfuras legendary one", 4, 28)
+   #      GildedRose.new([item]).update_quality
+   #      expect(item.sell_in).to eq(4)
+   #    end
+   # end
 
   describe BackstagePass do
     it "increases its quality by 1 if sell_in > 10" do
@@ -111,6 +131,7 @@ describe GildedRose do
   #     expect(items[0].name).to eq "fixme"
   #   end
   # end
+
   describe "Conjured items - no idea what they are..." do
     it "decreases twice faster than general tiems" do
       item = Item.new("Conjured",3, 25)
